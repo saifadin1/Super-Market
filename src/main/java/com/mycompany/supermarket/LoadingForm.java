@@ -8,12 +8,12 @@ package com.mycompany.supermarket;
  *
  * @author seif medhat
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class LoadingForm extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public LoadingForm() {
         initComponents();
     }
 
@@ -100,7 +100,7 @@ public class NewJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        NewJFrame f = new NewJFrame();
+        LoadingForm f = new LoadingForm();
         f.setVisible(true);
         try{
             for(int i=0; i<=100; i++){
