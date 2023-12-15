@@ -62,7 +62,7 @@ public class Seller extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(153, 255, 214));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel4.setText("Manage Products");
+        jLabel4.setText("Manage Sellers");
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 214));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
