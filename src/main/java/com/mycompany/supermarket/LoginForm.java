@@ -85,7 +85,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
 
         RoleComboBox.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        RoleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
+        RoleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Seller" }));
         RoleComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RoleComboBoxActionPerformed(evt);

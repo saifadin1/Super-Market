@@ -4,6 +4,10 @@
  */
 package com.mycompany.supermarket;
 
+import java.awt.Cursor;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author seif medhat
@@ -33,19 +37,21 @@ public class Products extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        NameTextField = new javax.swing.JTextField();
+        QuantityTextField = new javax.swing.JTextField();
+        PriceTextField = new javax.swing.JTextField();
+        IDTextField = new javax.swing.JTextField();
+        CategoryComboBox = new javax.swing.JComboBox<>();
+        DeleteBtn = new javax.swing.JButton();
+        EditBtn = new javax.swing.JButton();
+        ClearBtn = new javax.swing.JButton();
+        AddBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        DataTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        ExitLbl = new javax.swing.JLabel();
+        SellerLbl = new javax.swing.JLabel();
+        CategoriesLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -58,7 +64,7 @@ public class Products extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(153, 255, 214));
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel3.setText("Nmae");
+        jLabel3.setText("Name");
 
         jLabel4.setBackground(new java.awt.Color(153, 255, 214));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
@@ -80,76 +86,73 @@ public class Products extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(19, 45, 70));
         jLabel8.setText("Category");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        PriceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                PriceTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        IDTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                IDTextFieldActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dairy", "meat", "Beverage" }));
+        CategoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dairy", "meat", "Beverage" }));
 
-        jButton4.setBackground(new java.awt.Color(19, 45, 70));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(1, 195, 141));
-        jButton4.setText("ADD");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        DeleteBtn.setBackground(new java.awt.Color(19, 45, 70));
+        DeleteBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        DeleteBtn.setForeground(new java.awt.Color(1, 195, 141));
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                DeleteBtnActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(19, 45, 70));
-        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(1, 195, 141));
-        jButton5.setText("EDIT");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        EditBtn.setBackground(new java.awt.Color(19, 45, 70));
+        EditBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        EditBtn.setForeground(new java.awt.Color(1, 195, 141));
+        EditBtn.setText("EDIT");
+        EditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                EditBtnActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(19, 45, 70));
-        jButton6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(1, 195, 141));
-        jButton6.setText("CLear");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        ClearBtn.setBackground(new java.awt.Color(19, 45, 70));
+        ClearBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        ClearBtn.setForeground(new java.awt.Color(1, 195, 141));
+        ClearBtn.setText("CLear");
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ClearBtnActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(19, 45, 70));
-        jButton7.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(1, 195, 141));
-        jButton7.setText("Login");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        AddBtn.setBackground(new java.awt.Color(19, 45, 70));
+        AddBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        AddBtn.setForeground(new java.awt.Color(1, 195, 141));
+        AddBtn.setText("ADD");
+        AddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                AddBtnActionPerformed(evt);
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        DataTable.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        DataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Quantity", "Price", "Category"
             }
         ));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(1, 195, 141));
-        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
+        DataTable.setRowHeight(25);
+        DataTable.setSelectionBackground(new java.awt.Color(1, 195, 141));
+        DataTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(DataTable);
 
         jLabel9.setBackground(new java.awt.Color(153, 255, 214));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
@@ -170,29 +173,29 @@ public class Products extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(196, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(108, 108, 108)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel9))
                         .addGap(81, 81, 81)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(153, 153, 153))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,33 +215,65 @@ public class Products extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(166, 166, 166))
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("X");
+        ExitLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ExitLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ExitLbl.setText("X");
+        ExitLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitLblMouseEntered(evt);
+            }
+        });
+
+        SellerLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        SellerLbl.setForeground(new java.awt.Color(1, 195, 141));
+        SellerLbl.setText("Sellers");
+        SellerLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SellerLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SellerLblMouseEntered(evt);
+            }
+        });
+
+        CategoriesLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        CategoriesLbl.setForeground(new java.awt.Color(1, 195, 141));
+        CategoriesLbl.setText("Categories");
+        CategoriesLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -246,18 +281,29 @@ public class Products extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ExitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CategoriesLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SellerLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ExitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(SellerLbl)
+                        .addGap(41, 41, 41)
+                        .addComponent(CategoriesLbl)))
                 .addGap(0, 19, Short.MAX_VALUE))
         );
 
@@ -280,29 +326,111 @@ public class Products extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_IDTextFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void PriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_PriceTextFieldActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+     int selectedRowIndex = DataTable.getSelectedRow();
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    // Check if a row is selected
+        if (selectedRowIndex != -1) {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+            model.removeRow(selectedRowIndex);
+        } else {
+            // If no row is selected, display a message or perform any desired action
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_DeleteBtnActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void EditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBtnActionPerformed
+        int selectedRowIndex = DataTable.getSelectedRow();
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        // Check if a row is selected
+        if (selectedRowIndex != -1) {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+            
+            DataTable.getModel().setValueAt(IDTextField.getText(), selectedRowIndex, 0);
+            DataTable.getModel().setValueAt(NameTextField.getText(), selectedRowIndex, 1);
+            DataTable.getModel().setValueAt(CategoryComboBox.getSelectedItem().toString(), selectedRowIndex, 4);
+            DataTable.getModel().setValueAt(QuantityTextField.getText(), selectedRowIndex, 2);
+            DataTable.getModel().setValueAt(PriceTextField.getText(), selectedRowIndex, 3);
+
+
+            IDTextField.setText("");
+            NameTextField.setText("");
+            CategoryComboBox.setSelectedIndex(0);
+            QuantityTextField.setText("");
+            PriceTextField.setText("");
+
+            
+        } else {
+            // If no row is selected, display a message or perform any desired action
+            JOptionPane.showMessageDialog(this, "Please select a row to Edit.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_EditBtnActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+        IDTextField.setText("");
+        NameTextField.setText("");
+        CategoryComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
+        QuantityTextField.setText("");
+        PriceTextField.setText("");
+    }//GEN-LAST:event_ClearBtnActionPerformed
+
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        String IDdata = IDTextField.getText();
+        String Namedata = NameTextField.getText();
+        String Categorydata = CategoryComboBox.getSelectedItem().toString();
+        String Quantitydata = QuantityTextField.getText();
+        String Pricedata = PriceTextField.getText();
+        
+         Object[] rowData = {IDdata, Namedata, Categorydata, Quantitydata, Pricedata};
+         
+         DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
+         dtm.addRow(rowData);
+         
+        IDTextField.setText("");
+        NameTextField.setText("");
+        CategoryComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
+        QuantityTextField.setText("");
+        PriceTextField.setText("");
+         
+    }//GEN-LAST:event_AddBtnActionPerformed
+
+    private void ExitLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLblMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_ExitLblMouseClicked
+
+    private void ExitLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLblMouseEntered
+        ExitLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ExitLblMouseEntered
+
+    private void SellerLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SellerLblMouseClicked
+        Seller s = new Seller();
+        this.dispose();
+        s.setVisible(true);
+    }//GEN-LAST:event_SellerLblMouseClicked
+
+    private void SellerLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SellerLblMouseEntered
+        SellerLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_SellerLblMouseEntered
+
+    private void CategoriesLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseClicked
+        Category c = new Category();
+        this.dispose();
+        c.setVisible(true);
+    }//GEN-LAST:event_CategoriesLblMouseClicked
+
+    private void CategoriesLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseEntered
+        CategoriesLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CategoriesLblMouseEntered
 
     /**
      * @param args the command line arguments
@@ -340,12 +468,19 @@ public class Products extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton AddBtn;
+    private javax.swing.JLabel CategoriesLbl;
+    private javax.swing.JComboBox<String> CategoryComboBox;
+    private javax.swing.JButton ClearBtn;
+    private javax.swing.JTable DataTable;
+    private javax.swing.JButton DeleteBtn;
+    private javax.swing.JButton EditBtn;
+    private javax.swing.JLabel ExitLbl;
+    private javax.swing.JTextField IDTextField;
+    private javax.swing.JTextField NameTextField;
+    private javax.swing.JTextField PriceTextField;
+    private javax.swing.JTextField QuantityTextField;
+    private javax.swing.JLabel SellerLbl;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -355,10 +490,5 @@ public class Products extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
