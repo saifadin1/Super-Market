@@ -397,8 +397,8 @@ public class ProductsForm extends javax.swing.JFrame {
          
          
          product p = new product(Integer.parseInt(IDdata), Integer.parseInt(Quantitydata), Double.parseDouble(Pricedata), Namedata, Categorydata);
-         if(dataBase.existsId(Integer.parseInt(IDdata)) == false){
-            dataBase.addToDataBase(p);
+         if(dataBase.existsProductId(Integer.parseInt(IDdata)) == false){
+            dataBase.addProductToDataBase(p);
             dtm.addRow(rowData);
          } else {
              JOptionPane.showMessageDialog(this, "Please enter a unique ID .", "ID has been used", JOptionPane.WARNING_MESSAGE);
