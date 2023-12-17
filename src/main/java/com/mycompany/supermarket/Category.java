@@ -4,6 +4,10 @@
  */
 package com.mycompany.supermarket;
 
+import java.awt.Cursor;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author seif medhat
@@ -43,6 +47,25 @@ public class Category extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        NameTextField = new javax.swing.JTextField();
+        PasswordTextField = new javax.swing.JTextField();
+        IDTextField = new javax.swing.JTextField();
+        AddBtn = new javax.swing.JButton();
+        EditBtn = new javax.swing.JButton();
+        ClearBtn = new javax.swing.JButton();
+        RemoveBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DataTable = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        CategoriesLbl = new javax.swing.JLabel();
+        ProductsLbl1 = new javax.swing.JLabel();
+        ExitLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -215,6 +238,259 @@ public class Category extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("X");
 
+        jPanel3.setBackground(new java.awt.Color(19, 45, 70));
+
+        jPanel4.setBackground(new java.awt.Color(1, 195, 141));
+        jPanel4.setForeground(new java.awt.Color(1, 195, 141));
+
+        jLabel6.setBackground(new java.awt.Color(153, 255, 214));
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel6.setText("Name");
+
+        jLabel8.setBackground(new java.awt.Color(153, 255, 214));
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel8.setText("Manage Categories");
+
+        jLabel9.setBackground(new java.awt.Color(153, 255, 214));
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel9.setText("Description");
+
+        jLabel10.setBackground(new java.awt.Color(153, 255, 214));
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel10.setText("ID");
+
+        IDTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDTextFieldActionPerformed(evt);
+            }
+        });
+
+        AddBtn.setBackground(new java.awt.Color(19, 45, 70));
+        AddBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        AddBtn.setForeground(new java.awt.Color(1, 195, 141));
+        AddBtn.setText("ADD");
+        AddBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddBtnMouseEntered(evt);
+            }
+        });
+        AddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddBtnActionPerformed(evt);
+            }
+        });
+
+        EditBtn.setBackground(new java.awt.Color(19, 45, 70));
+        EditBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        EditBtn.setForeground(new java.awt.Color(1, 195, 141));
+        EditBtn.setText("EDIT");
+        EditBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                EditBtnMouseEntered(evt);
+            }
+        });
+        EditBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditBtnActionPerformed(evt);
+            }
+        });
+
+        ClearBtn.setBackground(new java.awt.Color(19, 45, 70));
+        ClearBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        ClearBtn.setForeground(new java.awt.Color(1, 195, 141));
+        ClearBtn.setText("CLear");
+        ClearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ClearBtnMouseEntered(evt);
+            }
+        });
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
+
+        RemoveBtn.setBackground(new java.awt.Color(19, 45, 70));
+        RemoveBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        RemoveBtn.setForeground(new java.awt.Color(1, 195, 141));
+        RemoveBtn.setText("Remove");
+        RemoveBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveBtnMouseEntered(evt);
+            }
+        });
+        RemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveBtnActionPerformed(evt);
+            }
+        });
+
+        DataTable.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        DataTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Description"
+            }
+        ));
+        DataTable.setRowHeight(25);
+        DataTable.setSelectionBackground(new java.awt.Color(1, 195, 141));
+        DataTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(DataTable);
+
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel12.setText("Categories List");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(429, 429, 429)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(191, 191, 191)
+                                .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(RemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel6))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(81, 81, 81)
+                        .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(153, 153, 153))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(274, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(264, 264, 264))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(555, 555, 555))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        CategoriesLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        CategoriesLbl.setForeground(new java.awt.Color(1, 195, 141));
+        CategoriesLbl.setText("Sellers");
+        CategoriesLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseEntered(evt);
+            }
+        });
+
+        ProductsLbl1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        ProductsLbl1.setForeground(new java.awt.Color(1, 195, 141));
+        ProductsLbl1.setText("Products");
+        ProductsLbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductsLbl1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ProductsLbl1MouseEntered(evt);
+            }
+        });
+
+        ExitLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        ExitLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ExitLbl.setText("X");
+        ExitLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitLblMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ExitLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(ProductsLbl1)
+                                .addGap(33, 33, 33))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(CategoriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(ExitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(CategoriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(ProductsLbl1)))
+                .addGap(0, 19, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -223,9 +499,14 @@ public class Category extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap(151, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +514,12 @@ public class Category extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,6 +561,111 @@ public class Category extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDTextFieldActionPerformed
+
+    private void AddBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseEntered
+        AddBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_AddBtnMouseEntered
+
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        String IDdata = IDTextField.getText();
+        String Namedata = NameTextField.getText();
+        String Passworddata = PasswordTextField.getText();
+
+        Object[] rowData = {IDdata, Namedata, Passworddata};
+
+        DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
+        dtm.addRow(rowData);
+
+        IDTextField.setText("");
+        NameTextField.setText("");
+        PasswordTextField.setText("");
+    }//GEN-LAST:event_AddBtnActionPerformed
+
+    private void EditBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseEntered
+        EditBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_EditBtnMouseEntered
+
+    private void EditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBtnActionPerformed
+        int selectedRowIndex = DataTable.getSelectedRow();
+
+        // Check if a row is selected
+        if (selectedRowIndex != -1) {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+
+            DataTable.getModel().setValueAt(IDTextField.getText(), selectedRowIndex, 0);
+            DataTable.getModel().setValueAt(NameTextField.getText(), selectedRowIndex, 1);
+            DataTable.getModel().setValueAt(PasswordTextField.getText(), selectedRowIndex, 2);
+
+            IDTextField.setText("");
+            NameTextField.setText("");
+            PasswordTextField.setText("");
+
+        } else {
+            // If no row is selected, display a message or perform any desired action
+            JOptionPane.showMessageDialog(this, "Please select a row to Edit.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_EditBtnActionPerformed
+
+    private void ClearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearBtnMouseEntered
+        ClearBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ClearBtnMouseEntered
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+        IDTextField.setText("");
+        NameTextField.setText("");
+        PasswordTextField.setText("");
+    }//GEN-LAST:event_ClearBtnActionPerformed
+
+    private void RemoveBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveBtnMouseEntered
+        RemoveBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_RemoveBtnMouseEntered
+
+    private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
+        int selectedRowIndex = DataTable.getSelectedRow();
+
+        // Check if a row is selected
+        if (selectedRowIndex != -1) {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+            model.removeRow(selectedRowIndex);
+        } else {
+            // If no row is selected, display a message or perform any desired action
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_RemoveBtnActionPerformed
+
+    private void CategoriesLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseClicked
+        Seller s = new Seller();
+        this.dispose();
+        s.setVisible(true);
+    }//GEN-LAST:event_CategoriesLblMouseClicked
+
+    private void CategoriesLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseEntered
+        CategoriesLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CategoriesLblMouseEntered
+
+    private void ProductsLbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductsLbl1MouseClicked
+        Products s = new Products();
+        this.dispose();
+        s.setVisible(true);
+    }//GEN-LAST:event_ProductsLbl1MouseClicked
+
+    private void ProductsLbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductsLbl1MouseEntered
+        ProductsLbl1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ProductsLbl1MouseEntered
+
+    private void ExitLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLblMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_ExitLblMouseClicked
+
+    private void ExitLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLblMouseEntered
+        ExitLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ExitLblMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -311,19 +702,38 @@ public class Category extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddBtn;
+    private javax.swing.JLabel CategoriesLbl;
+    private javax.swing.JButton ClearBtn;
+    private javax.swing.JTable DataTable;
+    private javax.swing.JButton EditBtn;
+    private javax.swing.JLabel ExitLbl;
+    private javax.swing.JTextField IDTextField;
+    private javax.swing.JTextField NameTextField;
+    private javax.swing.JTextField PasswordTextField;
+    private javax.swing.JLabel ProductsLbl1;
+    private javax.swing.JButton RemoveBtn;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
