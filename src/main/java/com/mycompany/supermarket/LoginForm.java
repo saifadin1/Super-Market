@@ -236,11 +236,11 @@ public class LoginForm extends javax.swing.JFrame {
         Object selectedRole = RoleComboBox.getSelectedItem();
         
         if (selectedRole != null && selectedRole.toString().equals("Admin")) {
-            Products p = new Products();
+            ProductsForm p = new ProductsForm();
             this.dispose();
             p.setVisible(true);
         } else if (selectedRole != null) {
-            Selling s = new Selling();
+            SellingForm s = new SellingForm();
             this.dispose();
             s.setVisible(true);
         }

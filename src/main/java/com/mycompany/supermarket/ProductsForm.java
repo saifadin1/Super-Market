@@ -12,12 +12,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author seif medhat
  */
-public class Seller extends javax.swing.JFrame {
+public class ProductsForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form Seller
+     * Creates new form Products
      */
-    public Seller() {
+    public ProductsForm() {
         initComponents();
     }
 
@@ -38,19 +38,20 @@ public class Seller extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         NameTextField = new javax.swing.JTextField();
-        PasswordTextField = new javax.swing.JTextField();
+        QuantityTextField = new javax.swing.JTextField();
+        PriceTextField = new javax.swing.JTextField();
         IDTextField = new javax.swing.JTextField();
-        GenderComboBox = new javax.swing.JComboBox<>();
-        AddBtn = new javax.swing.JButton();
+        CategoryComboBox = new javax.swing.JComboBox<>();
+        DeleteBtn = new javax.swing.JButton();
         EditBtn = new javax.swing.JButton();
         ClearBtn = new javax.swing.JButton();
-        RemoveBtn = new javax.swing.JButton();
+        AddBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DataTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        CategoriesLbl = new javax.swing.JLabel();
-        ProductsLbl1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         ExitLbl = new javax.swing.JLabel();
+        SellerLbl = new javax.swing.JLabel();
+        CategoriesLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -68,12 +69,12 @@ public class Seller extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(153, 255, 214));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel4.setText("Manage Sellers");
+        jLabel4.setText("Manage Products");
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 214));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel5.setText("Password");
+        jLabel5.setText("Quantity");
 
         jLabel7.setBackground(new java.awt.Color(153, 255, 214));
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
@@ -83,7 +84,13 @@ public class Seller extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(153, 255, 214));
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel8.setText("Gender");
+        jLabel8.setText("Category");
+
+        PriceTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PriceTextFieldActionPerformed(evt);
+            }
+        });
 
         IDTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,20 +98,15 @@ public class Seller extends javax.swing.JFrame {
             }
         });
 
-        GenderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "male" }));
+        CategoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dairy", "meat", "Beverage" }));
 
-        AddBtn.setBackground(new java.awt.Color(19, 45, 70));
-        AddBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        AddBtn.setForeground(new java.awt.Color(1, 195, 141));
-        AddBtn.setText("ADD");
-        AddBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AddBtnMouseEntered(evt);
-            }
-        });
-        AddBtn.addActionListener(new java.awt.event.ActionListener() {
+        DeleteBtn.setBackground(new java.awt.Color(19, 45, 70));
+        DeleteBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        DeleteBtn.setForeground(new java.awt.Color(1, 195, 141));
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddBtnActionPerformed(evt);
+                DeleteBtnActionPerformed(evt);
             }
         });
 
@@ -112,11 +114,6 @@ public class Seller extends javax.swing.JFrame {
         EditBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         EditBtn.setForeground(new java.awt.Color(1, 195, 141));
         EditBtn.setText("EDIT");
-        EditBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                EditBtnMouseEntered(evt);
-            }
-        });
         EditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditBtnActionPerformed(evt);
@@ -127,29 +124,19 @@ public class Seller extends javax.swing.JFrame {
         ClearBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         ClearBtn.setForeground(new java.awt.Color(1, 195, 141));
         ClearBtn.setText("CLear");
-        ClearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ClearBtnMouseEntered(evt);
-            }
-        });
         ClearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearBtnActionPerformed(evt);
             }
         });
 
-        RemoveBtn.setBackground(new java.awt.Color(19, 45, 70));
-        RemoveBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        RemoveBtn.setForeground(new java.awt.Color(1, 195, 141));
-        RemoveBtn.setText("Remove");
-        RemoveBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RemoveBtnMouseEntered(evt);
-            }
-        });
-        RemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+        AddBtn.setBackground(new java.awt.Color(19, 45, 70));
+        AddBtn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        AddBtn.setForeground(new java.awt.Color(1, 195, 141));
+        AddBtn.setText("ADD");
+        AddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveBtnActionPerformed(evt);
+                AddBtnActionPerformed(evt);
             }
         });
 
@@ -159,7 +146,7 @@ public class Seller extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Password", "Gender"
+                "ID", "Name", "Quantity", "Price", "Category"
             }
         ));
         DataTable.setRowHeight(25);
@@ -167,59 +154,58 @@ public class Seller extends javax.swing.JFrame {
         DataTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(DataTable);
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(19, 45, 70));
-        jLabel2.setText("Sellers List");
+        jLabel9.setBackground(new java.awt.Color(153, 255, 214));
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(19, 45, 70));
+        jLabel9.setText("Price");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(429, 429, 429)
-                                .addComponent(jLabel4))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(191, 191, 191)
-                                .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(RemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel3))
-                        .addGap(70, 70, 70)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(81, 81, 81)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(GenderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(153, 153, 153))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(274, Short.MAX_VALUE)
+                            .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(196, Short.MAX_VALUE)
+                        .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(108, 108, 108)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(264, 264, 264))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(555, 555, 555))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel9))
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(153, 153, 153))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(429, 429, 429)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,49 +217,27 @@ public class Seller extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(QuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GenderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                    .addComponent(ClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(166, 166, 166))
         );
-
-        CategoriesLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        CategoriesLbl.setForeground(new java.awt.Color(1, 195, 141));
-        CategoriesLbl.setText("Categories");
-        CategoriesLbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CategoriesLblMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CategoriesLblMouseEntered(evt);
-            }
-        });
-
-        ProductsLbl1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        ProductsLbl1.setForeground(new java.awt.Color(1, 195, 141));
-        ProductsLbl1.setText("Products");
-        ProductsLbl1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProductsLbl1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ProductsLbl1MouseEntered(evt);
-            }
-        });
 
         ExitLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ExitLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,24 +251,45 @@ public class Seller extends javax.swing.JFrame {
             }
         });
 
+        SellerLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        SellerLbl.setForeground(new java.awt.Color(1, 195, 141));
+        SellerLbl.setText("Sellers");
+        SellerLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SellerLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SellerLblMouseEntered(evt);
+            }
+        });
+
+        CategoriesLbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        CategoriesLbl.setForeground(new java.awt.Color(1, 195, 141));
+        CategoriesLbl.setText("Categories");
+        CategoriesLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CategoriesLblMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ExitLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ExitLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ProductsLbl1)
-                                .addGap(33, 33, 33))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(CategoriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
+                    .addComponent(CategoriesLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SellerLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,12 +298,12 @@ public class Seller extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(CategoriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(ProductsLbl1)))
+                        .addGap(165, 165, 165)
+                        .addComponent(SellerLbl)
+                        .addGap(41, 41, 41)
+                        .addComponent(CategoriesLbl)))
                 .addGap(0, 19, Short.MAX_VALUE))
         );
 
@@ -345,22 +330,23 @@ public class Seller extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IDTextFieldActionPerformed
 
-    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
-        String IDdata = IDTextField.getText();
-        String Namedata = NameTextField.getText();
-        String Genderdata = GenderComboBox.getSelectedItem().toString();
-        String Passworddata = PasswordTextField.getText();
-        
-         Object[] rowData = {IDdata, Namedata, Passworddata, Genderdata};
-         
-         DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
-         dtm.addRow(rowData);
-         
-        IDTextField.setText("");
-        NameTextField.setText("");
-        GenderComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
-        PasswordTextField.setText("");
-    }//GEN-LAST:event_AddBtnActionPerformed
+    private void PriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PriceTextFieldActionPerformed
+
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+     int selectedRowIndex = DataTable.getSelectedRow();
+
+    // Check if a row is selected
+        if (selectedRowIndex != -1) {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+            model.removeRow(selectedRowIndex);
+        } else {
+            // If no row is selected, display a message or perform any desired action
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_DeleteBtnActionPerformed
 
     private void EditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBtnActionPerformed
         int selectedRowIndex = DataTable.getSelectedRow();
@@ -372,14 +358,17 @@ public class Seller extends javax.swing.JFrame {
             
             DataTable.getModel().setValueAt(IDTextField.getText(), selectedRowIndex, 0);
             DataTable.getModel().setValueAt(NameTextField.getText(), selectedRowIndex, 1);
-            DataTable.getModel().setValueAt(GenderComboBox.getSelectedItem().toString(), selectedRowIndex, 3);
-            DataTable.getModel().setValueAt(PasswordTextField.getText(), selectedRowIndex, 2);
+            DataTable.getModel().setValueAt(CategoryComboBox.getSelectedItem().toString(), selectedRowIndex, 4);
+            DataTable.getModel().setValueAt(QuantityTextField.getText(), selectedRowIndex, 2);
+            DataTable.getModel().setValueAt(PriceTextField.getText(), selectedRowIndex, 3);
 
 
             IDTextField.setText("");
             NameTextField.setText("");
-            GenderComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
-            PasswordTextField.setText("");
+            CategoryComboBox.setSelectedIndex(0);
+            QuantityTextField.setText("");
+            PriceTextField.setText("");
+
             
         } else {
             // If no row is selected, display a message or perform any desired action
@@ -390,23 +379,38 @@ public class Seller extends javax.swing.JFrame {
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
         IDTextField.setText("");
         NameTextField.setText("");
-        GenderComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
-        PasswordTextField.setText("");
+        CategoryComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
+        QuantityTextField.setText("");
+        PriceTextField.setText("");
     }//GEN-LAST:event_ClearBtnActionPerformed
 
-    private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
-        int selectedRowIndex = DataTable.getSelectedRow();
-
-        // Check if a row is selected
-        if (selectedRowIndex != -1) {
-            // Remove the selected row from the table model
-            DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
-            model.removeRow(selectedRowIndex);
-        } else {
-            // If no row is selected, display a message or perform any desired action
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_RemoveBtnActionPerformed
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        String IDdata = IDTextField.getText();
+        String Namedata = NameTextField.getText();
+        String Categorydata = CategoryComboBox.getSelectedItem().toString();
+        String Quantitydata = QuantityTextField.getText();
+        String Pricedata = PriceTextField.getText();
+        
+         Object[] rowData = {IDdata, Namedata, Categorydata, Quantitydata, Pricedata};
+         
+         DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
+         
+         
+         product p = new product(Integer.parseInt(IDdata), Integer.parseInt(Quantitydata), Double.parseDouble(Pricedata), Namedata, Categorydata);
+         if(dataBase.existsId(Integer.parseInt(IDdata)) == false){
+            dataBase.addToDataBase(p);
+            dtm.addRow(rowData);
+         } else {
+             JOptionPane.showMessageDialog(this, "Please enter a unique ID .", "ID has been used", JOptionPane.WARNING_MESSAGE);
+         }
+         
+        IDTextField.setText("");
+        NameTextField.setText("");
+        CategoryComboBox.setSelectedIndex(0); // Assuming you want to reset the combo box selection
+        QuantityTextField.setText("");
+        PriceTextField.setText("");
+         
+    }//GEN-LAST:event_AddBtnActionPerformed
 
     private void ExitLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitLblMouseClicked
         this.dispose();
@@ -416,41 +420,25 @@ public class Seller extends javax.swing.JFrame {
         ExitLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_ExitLblMouseEntered
 
-    private void CategoriesLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseClicked
-        Category s = new Category();
+    private void SellerLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SellerLblMouseClicked
+        SellerForm s = new SellerForm();
         this.dispose();
         s.setVisible(true);
-    }//GEN-LAST:event_CategoriesLblMouseClicked
+    }//GEN-LAST:event_SellerLblMouseClicked
 
-    private void ProductsLbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductsLbl1MouseClicked
-        Products s = new Products();
+    private void SellerLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SellerLblMouseEntered
+        SellerLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_SellerLblMouseEntered
+
+    private void CategoriesLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseClicked
+        CategoryForm c = new CategoryForm();
         this.dispose();
-        s.setVisible(true);
-    }//GEN-LAST:event_ProductsLbl1MouseClicked
+        c.setVisible(true);
+    }//GEN-LAST:event_CategoriesLblMouseClicked
 
     private void CategoriesLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseEntered
         CategoriesLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_CategoriesLblMouseEntered
-
-    private void ProductsLbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductsLbl1MouseEntered
-        ProductsLbl1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_ProductsLbl1MouseEntered
-
-    private void AddBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseEntered
-        AddBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_AddBtnMouseEntered
-
-    private void RemoveBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveBtnMouseEntered
-        RemoveBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_RemoveBtnMouseEntered
-
-    private void EditBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseEntered
-        EditBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_EditBtnMouseEntered
-
-    private void ClearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearBtnMouseEntered
-        ClearBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_ClearBtnMouseEntered
 
     /**
      * @param args the command line arguments
@@ -469,20 +457,21 @@ public class Seller extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seller.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProductsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Seller().setVisible(true);
+                new ProductsForm().setVisible(true);
             }
         });
     }
@@ -490,22 +479,23 @@ public class Seller extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddBtn;
     private javax.swing.JLabel CategoriesLbl;
+    private javax.swing.JComboBox<String> CategoryComboBox;
     private javax.swing.JButton ClearBtn;
     private javax.swing.JTable DataTable;
+    private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
     private javax.swing.JLabel ExitLbl;
-    private javax.swing.JComboBox<String> GenderComboBox;
     private javax.swing.JTextField IDTextField;
     private javax.swing.JTextField NameTextField;
-    private javax.swing.JTextField PasswordTextField;
-    private javax.swing.JLabel ProductsLbl1;
-    private javax.swing.JButton RemoveBtn;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField PriceTextField;
+    private javax.swing.JTextField QuantityTextField;
+    private javax.swing.JLabel SellerLbl;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

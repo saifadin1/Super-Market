@@ -12,12 +12,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author seif medhat
  */
-public class Category extends javax.swing.JFrame {
+public class CategoryForm extends javax.swing.JFrame {
 
     /**
      * Creates new form Category
      */
-    public Category() {
+    public CategoryForm() {
         initComponents();
     }
 
@@ -639,7 +639,7 @@ public class Category extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveBtnActionPerformed
 
     private void CategoriesLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoriesLblMouseClicked
-        Seller s = new Seller();
+        SellerForm s = new SellerForm();
         this.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_CategoriesLblMouseClicked
@@ -649,7 +649,7 @@ public class Category extends javax.swing.JFrame {
     }//GEN-LAST:event_CategoriesLblMouseEntered
 
     private void ProductsLbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductsLbl1MouseClicked
-        Products s = new Products();
+        ProductsForm s = new ProductsForm();
         this.dispose();
         s.setVisible(true);
     }//GEN-LAST:event_ProductsLbl1MouseClicked
@@ -683,20 +683,21 @@ public class Category extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Category.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CategoryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Category().setVisible(true);
+                new CategoryForm().setVisible(true);
             }
         });
     }
