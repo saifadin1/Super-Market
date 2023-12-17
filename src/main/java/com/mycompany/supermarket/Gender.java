@@ -10,5 +10,7 @@ package com.mycompany.supermarket;
  */
 public enum Gender {
     Male,
-    Female
+    Female;
+    
+    
 }

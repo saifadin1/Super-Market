@@ -15,13 +15,14 @@ import java.util.Vector;
 public class dataBase {
     Vector<product> ProductsData;
     Map<Integer,Integer> ProductIdMap;
-    
     Vector<Seller> SellersData;
     Map<Integer,Integer> SellersIdMap;
     
     private dataBase(){
         ProductsData = new Vector<>();
         ProductIdMap = new HashMap<>();
+        SellersData = new Vector<>();
+        SellersIdMap = new HashMap<>();
     }
     
     static dataBase singleObj;
@@ -41,7 +42,7 @@ public class dataBase {
         singleObj.ProductIdMap.put(p.id, 1);
     }
     
-    static public void addToSellerDataBase(Seller s){
+    static public void addSellerToDataBase(Seller s){
         if(singleObj == null){
             singleObj = new dataBase();
         }

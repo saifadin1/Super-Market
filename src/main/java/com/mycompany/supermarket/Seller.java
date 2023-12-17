@@ -13,10 +13,11 @@ public class Seller {
     String name , password;
     Gender gender;
     
-    public Seller(int _id , String _name, String _password, Gender _gender){
+    public Seller(int _id , String _name, String _password, String _gender){
         this.id = _id;
-        this.gender = _gender;
         this.name = _name;
         this.password = _password;
+        if(_gender == "Male") this.gender = Gender.Male;
+        else if(_gender == "Female") this.gender = Gender.Female;
     }
 }

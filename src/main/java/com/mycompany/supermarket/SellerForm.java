@@ -354,7 +354,14 @@ public class SellerForm extends javax.swing.JFrame {
          Object[] rowData = {IDdata, Namedata, Passworddata, Genderdata};
          
          DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
-         dtm.addRow(rowData);
+         
+         Seller s = new Seller(Integer.parseInt(IDdata), Namedata, Passworddata, Genderdata);
+         if(dataBase.existsSellerId(Integer.parseInt(IDdata)) == false){
+            dataBase.addSellerToDataBase(s);
+            dtm.addRow(rowData);
+         } else {
+             JOptionPane.showMessageDialog(this, "Please enter a unique ID .", "ID has been used", JOptionPane.WARNING_MESSAGE);
+         }
          
         IDTextField.setText("");
         NameTextField.setText("");
