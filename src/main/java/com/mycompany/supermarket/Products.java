@@ -394,7 +394,15 @@ public class Products extends javax.swing.JFrame {
          Object[] rowData = {IDdata, Namedata, Categorydata, Quantitydata, Pricedata};
          
          DefaultTableModel dtm = (DefaultTableModel) DataTable.getModel();
-         dtm.addRow(rowData);
+         
+         
+         product p = new product(Integer.parseInt(IDdata), Integer.parseInt(Quantitydata), Double.parseDouble(Pricedata), Namedata, Categorydata);
+         if(dataBase.existsId(Integer.parseInt(IDdata)) == false){
+            dataBase.addToDataBase(p);
+            dtm.addRow(rowData);
+         } else {
+             JOptionPane.showMessageDialog(this, "Please enter a unique ID .", "ID has been used", JOptionPane.WARNING_MESSAGE);
+         }
          
         IDTextField.setText("");
         NameTextField.setText("");
